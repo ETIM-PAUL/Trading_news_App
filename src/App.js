@@ -1,7 +1,11 @@
-import "./App.css";
+import MarketSummary from "./components/MarketSummary";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <MarketSummary />
+    </div>
+  );
 }
 
 export default App;
