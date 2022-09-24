@@ -1,0 +1,269 @@
+$sm: 481px;
+$md: 968px;
+$lg: 1100px;
+@mixin breakpoint($point) {
+  @if $point == md {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+  @if $point == sm {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+  @if $point == lg {
+    @media (min-width: $lg) {
+      @content;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mainContainer {
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+.mainBody {
+  // padding: 4rem;
+  position: relative;
+
+  @include breakpoint(sm) {
+    padding: 2rem 1rem;
+  }
+  @include breakpoint(md) {
+    padding: 1rem 1rem;
+  }
+  @include breakpoint(lg) {
+    padding: 1rem;
+  }
+}
+.firstDiv {
+  padding: 1rem;
+  margin: 2rem;
+  display: flex;
+  @include breakpoint(sm) {
+    padding: 1.5rem 0;
+    margin: 2rem 1rem;
+  }
+}
+.mainFirstDiv {
+  @include breakpoint(lg) {
+    // padding: 1.5rem 0;
+    margin: 1rem 1rem;
+    width: 100%;
+  }
+}
+.mainHeading {
+  color: white;
+  font-size: 2.5rem;
+  width: 100%;
+  @include breakpoint(sm) {
+    color: white;
+    font-size: 2.5rem;
+  }
+  @include breakpoint(md) {
+    font-size: 3.5rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 4rem;
+  }
+}
+.mainInput {
+  width: 13rem;
+  height: 40px;
+  margin: 2rem 0;
+  padding: 0.3rem 5rem;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  &::placeholder {
+    color: darkslategrey;
+    margin-left: 20px;
+    position: absolute;
+    left: 45px;
+    bottom: 15px;
+    font-size: 1rem;
+  }
+  @include breakpoint(sm) {
+    padding: 0.3rem 2rem;
+    width: 11rem;
+  }
+}
+.group {
+  position: relative;
+}
+.search {
+  position: absolute;
+  left: 6px;
+  padding: 3px;
+  bottom: 44px;
+  background-color: #4682b4;
+  color: white;
+  outline: none;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  margin: 0 20px;
+  @include breakpoint(sm) {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}
+.marketBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  width: 400px;
+  @include breakpoint(md) {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+  }
+}
+.marketBody p {
+  color: green;
+}
+.marketGroup {
+  width: 150px;
+  padding: 2px 10px;
+  margin: 20px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  color: white;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: inset 120px 0 0 0 black;
+    color: white;
+  }
+  @include breakpoint(md) {
+    margin: 10px;
+  }
+  @include breakpoint(sm) {
+    width: 80px;
+    margin-right: 25px;
+    border-radius: 10px;
+    margin: 0;
+    &:hover {
+      box-shadow: inset 100px 0 0 0 black;
+      color: white;
+    }
+  }
+}
+
+.marketContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.marketDetails {
+  margin: 0 5px;
+}
+.secondDiv {
+  width: 300px;
+  height: 150px;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 20px;
+  margin: 10px;
+
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  position: absolute;
+  bottom: 13%;
+  right: 2%;
+
+  @include breakpoint(md) {
+    width: 250px;
+    height: 150px;
+    padding: 8px;
+    margin: 5px;
+  }
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+.secondDiv h4 {
+  margin: 8px 0;
+  @include breakpoint(sm) {
+    margin: 2px 0;
+  }
+}
+
+.secondDiv p {
+  margin: 0 1rem;
+  color: lightgrey;
+  @include breakpoint(sm) {
+    margin: 0 8px;
+  }
+}
+.partOne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partOne img {
+  border-radius: 50%;
+  width: 20%;
+  height: 20%;
+  @include breakpoint(sm) {
+    width: 10%;
+    height: 10%;
+  }
+}
+.name {
+  color: grey;
+  align-items: center;
+}
+
+.subOne span {
+  margin-top: 10px;
+}
+.btn {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.4);
+  outline: none;
+  border: none;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: inset 300px 0 0 0 black;
+    color: white;
+  }
+}
+
+.play {
+  width: 30px;
+  height: 30px;
+  @include breakpoint(md) {
+    width: 20px;
+    height: 20px;
+  }
+}
+.desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow {
+  margin-top: 5px;
+}
